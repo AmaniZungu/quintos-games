@@ -1,4 +1,3 @@
-QuintOS.username = 'quinton-ashley';
-QuintOS.level = 5;
-QuintOS.dir = 'roms';
-// QuintOS.gameSelect = 'SuperJump';
+QuintOS.username = "AmaniZungu";
+QuintOS.level = 2;
+QuintOS.dir = "GAMES";
