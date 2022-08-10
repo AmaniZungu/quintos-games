@@ -18,32 +18,37 @@ let imgWall1 = spriteArt('bbbrrbbb'.repeat(4), 10);
 let imgWall2 = spriteArt('bbbrrbbb'.repeat(4), 10);
 
 // places a ball in center of the screen
-let ball = createSprite(imgBall);
+let ball = new Sprite(imgBall);
 ball.x = width / 2;
 ball.y = height / 2;
 ball.velocity.x = 1;
 ball.velocity.y = -1;
+ball.bounciness = 1;
+ball.friction = 0;
+ball.rotationLocked = true;
 
 /* PART A0: create two paddles, place on each end of the screen */
-let paddleL = createSprite(imgPaddle);
-let paddleR = createSprite(imgPaddle);
+let paddleL = new Sprite(imgPaddle);
+let paddleR = new Sprite(imgPaddle);
 
-paddleL.x = 0;
-paddleL.y = 80;
-paddleL.immovable = true;
+paddleL.x = 10;
+paddleL.y = height / 2;
+paddleL.static = true;
 
-paddleR.x = 247;
-paddleR.y = 80;
-paddleR.immovable = true;
+paddleR.x = width - 10;
+paddleR.y = height / 2;
+paddleR.static = true;
 
-let wall1 = createSprite(imgWall1);
-let wall2 = createSprite(imgWall2);
+let wall1 = new Sprite(imgWall1);
+let wall2 = new Sprite(imgWall2);
 
-wall1.x = 0;
-wall1.y = 10;
+wall1.x = width / 2;
+wall1.y = 5;
+wall1.static = true;
 
-wall2.x = 0;
-wall2.y = height - wall2.h;
+wall2.x = width / 2;
+wall2.y = height - 5;
+wall2.static = true;
 
 function draw() {
 	background(colorPal('u'));
@@ -94,9 +99,4 @@ function draw() {
 	/* PART A2 move the paddles */
 	paddleL.y = mouseY;
 	paddleR.y = mouseY;
-
-	ball.bounce(paddleL);
-	ball.bounce(paddleR);
-
-	drawSprites();
 }

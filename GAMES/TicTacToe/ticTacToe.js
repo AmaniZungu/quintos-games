@@ -17,8 +17,6 @@ TTTTT  OOO   EEEE
   T   O   O  E
   T    OOO   EEEE`.slice(1);
 
-text(title, 5, 6);
-
 const bigSpace = '        \n'.repeat(7);
 
 const bigO = `
@@ -42,13 +40,6 @@ XX    XX`.slice(1);
 const gridRow = 3;
 const gridCol = 26;
 
-/* PART A: finish the grid of 9x8 spaces */
-text('─'.repeat(26), gridRow + 7, gridCol);
-text('─'.repeat(26), gridRow + 15, gridCol); // draw another horizontal line
-
-text('│\n'.repeat(23), gridRow, gridCol + 8);
-text('│\n'.repeat(23), gridRow, gridCol + 17); // draw another vertical line
-
 // board stores the game data
 // in a two dimensional array of spaces
 let board = [
@@ -60,6 +51,28 @@ let board = [
 let turnX = Math.random() <= 0.5;
 let scoreX = 0;
 let scoreO = 0;
+
+function start() {
+	text(title, 5, 6);
+	/* PART A: finish the grid of 9x8 spaces */
+	text('─'.repeat(26), gridRow + 7, gridCol);
+	text('─'.repeat(26), gridRow + 15, gridCol); // draw another horizontal line
+
+	text('│\n'.repeat(23), gridRow, gridCol + 8);
+	text('│\n'.repeat(23), gridRow, gridCol + 17); // draw another vertical line
+
+	displayScore();
+	displayTurn();
+	/* PART A: Make the buttons in the grid */
+	// note the intervals! x += 9 and y += 8
+	for (let row = 0; row < 3; row++) {
+		for (let col = 0; col < 3; col++) {
+			button(bigSpace, gridRow + row * 8, gridCol + col * 9, () => {
+				takeTurn(row, col);
+			});
+		}
+	}
+}
 
 // returns true if the mark is a winner
 // returns false if mark has not won
@@ -161,16 +174,4 @@ function displayTurn() {
 function displayScore() {
 	text('Player X score: ' + scoreX, 5, 53);
 	text('Player O score: ' + scoreO, 6, 53);
-}
-
-displayScore();
-displayTurn();
-/* PART A: Make the buttons in the grid */
-// note the intervals! x += 9 and y += 8
-for (let row = 0; row < 3; row++) {
-	for (let col = 0; col < 3; col++) {
-		button(bigSpace, gridRow + row * 8, gridCol + col * 9, () => {
-			takeTurn(row, col);
-		});
-	}
 }

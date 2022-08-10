@@ -23,28 +23,37 @@ for (let i = 0; i < unfilteredPhrases.length; i++) {
 	if (shouldBeIncluded) phrases.push(unfilteredPhrases[i]);
 }
 
-let rand = Math.floor(Math.random() * phrases.length);
+let phrase, board;
 
-let phrase = phrases[rand];
-phrase = phrase.split(' ');
-log(phrase);
+function start() {
+	let rand = Math.floor(Math.random() * phrases.length);
 
-/* Make a board array to represent the letters in the phrase */
-// phrase -> ['Community', 'Chest']
-// board -> [
-//   [' ', ' ', ' ', '', ' ', ' ', ' ', ' ', ' '],
-//   [' ', ' ', ' ', ' ', ' ']
-// ]
+	phrase = phrases[rand];
+	phrase = phrase.split(' ');
+	log(phrase);
 
-let board = [];
-for (let i = 0; i < phrase.length; i++) {
-	board.push([]);
-	let word = phrase[i];
-	for (let j = 0; j < word.length; j++) {
-		board[i].push(' ');
+	/* Make a board array to represent the letters in the phrase */
+	// phrase -> ['Community', 'Chest']
+	// board -> [
+	//   [' ', ' ', ' ', '', ' ', ' ', ' ', ' ', ' '],
+	//   [' ', ' ', ' ', ' ', ' ']
+	// ]
+
+	board = [];
+	for (let i = 0; i < phrase.length; i++) {
+		board.push([]);
+		let word = phrase[i];
+		for (let j = 0; j < word.length; j++) {
+			board[i].push(' ');
+		}
 	}
+	log(board);
+
+	displayBoxes();
+	/* Create the buzzer button */
+	button(bigBuzzer, 18, 5, buzz);
+	addLetter();
 }
-log(board);
 
 /* Display all the boxes for the phrase */
 function displayBoxes() {
@@ -58,7 +67,6 @@ function displayBoxes() {
 	}
 }
 
-displayBoxes();
 let bigBuzzer = `
 |⎺|__  _   _ ___________ _ __
 | '_ \\| | | |_  /_  / _ \\ '__|
@@ -66,9 +74,6 @@ let bigBuzzer = `
 |_.__/ \\__,_/___/___\\___|_|`.slice(1);
 
 function buzz() {}
-
-/* Create the buzzer button */
-button(bigBuzzer, 18, 5, buzz);
 
 // board -> [
 //   ['C', ' ', 'm', 'm', 'u', ' ', 'i', ' ', 'y'],
@@ -103,5 +108,3 @@ async function addLetter() {
 	await delay(1000);
 	addLetter();
 }
-
-addLetter();
