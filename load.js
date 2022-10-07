@@ -1,3 +1,3 @@
 QuintOS.username = 'AmaniZungu';
 QuintOS.dir = 'GAMES';
-QuintOS.gameTitle = 'QuickClicks';
+QuintOS.gameTitle = 'LilyLeap';
