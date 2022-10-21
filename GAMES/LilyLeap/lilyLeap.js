@@ -8,6 +8,8 @@ let time;
 
 let bugPositions = [];
 
+let isPlaying = false;
+
 function preload() {
 	frog = new Sprite();
 	frog.addAni('frog_jump.png', { size: [32, 16], frames: 7 });
@@ -22,7 +24,7 @@ function preload() {
 	bugs.addImg(bugImg);
 }
 
-function setup() {
+async function setup() {
 	world.gravity.y = 10;
 	noStroke();
 
@@ -42,11 +44,15 @@ function setup() {
 	lilypads.collider = 'static';
 	lilypads.layer = 0;
 
-	frog.overlap(bugs, eatBug);
+	frog.overlaps(bugs, eatBug);
 
 	makeLilyPads();
 	makeBugs();
 
+	await delay(500);
+
+	await alert('Press the up arrow key to jump one lily pad. Press right arrow to jump two.', 2);
+	isPlaying = true;
 	time = Date.now();
 }
 
@@ -85,6 +91,7 @@ function draw() {
 	fill('3');
 	rect(0, 0, width, 90);
 
+	if (!isPlaying) return;
 	// if frog is on the ground
 	if (frog.y >= 83 && frog.vel.y < 1) {
 		frog.x = round(frog.x / 16) * 16;
@@ -92,14 +99,14 @@ function draw() {
 		frog.ani.frame = 0;
 
 		// then it can jump
-		if (kb.pressed('ArrowUp')) {
+		if (kb.presses('ArrowUp')) {
 			// little jump
 			frog.velocity.y = -1.4;
 			frog.velocity.x = 0.975;
 			frog.ani.play();
 			score += 1;
 			text(score + ' '.repeat(5), 0, 17);
-		} else if (kb.pressed('ArrowRight')) {
+		} else if (kb.presses('ArrowRight')) {
 			// BIG jump!
 			frog.velocity.y = -2;
 			frog.velocity.x = 1.355;
@@ -113,13 +120,7 @@ function draw() {
 
 	// reset if the frog falls or if the countdown timer runs out
 	if (frog.y > 300 || countDown < 0) {
-		frog.x = 16;
-		frog.y = 83;
-		score = 0;
-		countDown = 10;
-		bugs.removeAll();
-		makeBugs();
-		text(score + ' '.repeat(5), 0, 17);
+		gameOver();
 	}
 
 	text(countDown + ' '.repeat(5), 17, 17);
@@ -127,4 +128,17 @@ function draw() {
 	if (frameCount % 60 == 0) {
 		countDown--;
 	}
+}
+
+async function gameOver() {
+	isPlaying = false;
+	await alert('Game Over! Your score is: ' + score);
+	frog.x = 16;
+	frog.y = 83;
+	score = 0;
+	countDown = 10;
+	bugs.removeAll();
+	makeBugs();
+	text(score + ' '.repeat(5), 0, 17);
+	isPlaying = true;
 }
