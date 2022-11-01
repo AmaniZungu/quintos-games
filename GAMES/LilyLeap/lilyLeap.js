@@ -49,8 +49,6 @@ async function setup() {
 	makeLilyPads();
 	makeBugs();
 
-	await delay(500);
-
 	await alert('Press the up arrow key to jump one lily pad. Press right arrow to jump two.', 2);
 	isPlaying = true;
 	time = Date.now();
@@ -63,15 +61,20 @@ function eatBug(frog, bug) {
 
 function makeLilyPads() {
 	/* Part A: Use a loop to make more lily pads. */
-	for (let i = 0, l = 1; i < 100; i++, l++) {
+	let bugSpacing = 5;
+	for (let i = 0, l = 1; i < 160; i++, l++) {
 		let lily = new lilypads.Sprite();
 		lily.x = 16 + i * 16;
 		lily.ani.frame = round(random(0, 11));
 		lily.ani.frameDelay = round(random(100, 140));
 
-		if (l % 5 == 0) {
+		if (l % bugSpacing == 0) {
 			bugPositions.push(16 + i * 16);
 		}
+
+		if (l == 25) bugSpacing = 6;
+		else if (l == 60) bugSpacing = 7;
+		else if (l == 90) bugSpacing = 8;
 
 		if (random() > 0.6) {
 			i++;
@@ -105,14 +108,14 @@ function draw() {
 			frog.velocity.x = 0.975;
 			frog.ani.play();
 			score += 1;
-			text(score + ' '.repeat(5), 0, 17);
+			text(score + '  ', 17, 17);
 		} else if (kb.presses('ArrowRight')) {
 			// BIG jump!
 			frog.velocity.y = -2;
 			frog.velocity.x = 1.355;
 			frog.ani.play();
 			score += 2;
-			text(score + ' '.repeat(5), 0, 17);
+			text(score + '  ', 17, 17);
 		}
 	}
 
@@ -123,7 +126,7 @@ function draw() {
 		gameOver();
 	}
 
-	text(countDown + ' '.repeat(5), 17, 17);
+	text(countDown + ' '.repeat(5), 0, 17);
 
 	if (frameCount % 60 == 0) {
 		countDown--;
@@ -132,10 +135,15 @@ function draw() {
 
 async function gameOver() {
 	isPlaying = false;
-	await alert('Game Over! Your score is: ' + score);
+	frog.speed = 0;
+	text('Game Over! Your score is: ' + score, 4);
+	await delay(2000);
+	text('                                ', 4);
 	frog.x = 16;
 	frog.y = 83;
+	frog.speed = 0;
 	score = 0;
+	text(score + '  ', 17, 17);
 	countDown = 10;
 	bugs.removeAll();
 	makeBugs();
