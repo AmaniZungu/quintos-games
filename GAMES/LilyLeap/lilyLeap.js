@@ -126,11 +126,20 @@ function draw() {
 		gameOver();
 	}
 
+	if (score >= 160) {
+		gameWin();
+	}
+
 	text(countDown + ' '.repeat(5), 0, 17);
 
 	if (frameCount % 60 == 0) {
 		countDown--;
 	}
+}
+
+function gameWin() {
+	isPlaying = false;
+	text('The Frog Came Home From Work. Good Job!', 3);
 }
 
 async function gameOver() {
