@@ -10,11 +10,23 @@ let bugPositions = [];
 
 let isPlaying = false;
 
+let jump1;
+
+let jump2;
+
+let death;
+
 function preload() {
 	frog = new Sprite();
 	frog.addAni('frog_jump.png', { size: [32, 16], frames: 7 });
 	lilypads = new Group();
 	lilypads.addAni('lilypads.png', { size: [16, 16], frames: 12 });
+	jump1 = loadSound('sounds/retro_jump_bounce_08.wav');
+	jump2 = loadSound('sounds/retro_jump_bounce_09.wav');
+	death = loadSound('sounds/retro_jump_bounce_12.wav');
+	jump1.setVolume(0.2);
+	jump2.setVolume(0.3);
+	death.setVolume(0.3);
 
 	let bugImg = spriteArt(`
 	0  
@@ -109,6 +121,7 @@ function draw() {
 			frog.ani.play();
 			score += 1;
 			text(score + '  ', 17, 17);
+			jump1.play();
 		} else if (kb.presses('ArrowRight')) {
 			// BIG jump!
 			frog.velocity.y = -2;
@@ -116,6 +129,7 @@ function draw() {
 			frog.ani.play();
 			score += 2;
 			text(score + '  ', 17, 17);
+			jump2.play();
 		}
 	}
 
@@ -145,6 +159,7 @@ function gameWin() {
 async function gameOver() {
 	isPlaying = false;
 	frog.speed = 0;
+	death.play();
 	text('Game Over! Your score is: ' + score, 4);
 	await delay(2000);
 	text('                                ', 4);
