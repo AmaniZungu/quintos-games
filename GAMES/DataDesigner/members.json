@@ -1,0 +1,19 @@
+{
+	"members": [
+		{
+			"id": "m1",
+			"name": "Alice",
+			"rented": ["04", "43"]
+		},
+		{
+			"id": "m2",
+			"name": "Bob",
+			"rented": ["16", "62"]
+		},
+		{
+			"id": "m3",
+			"name": "Charlie",
+			"rented": ["11", "32", "13"]
+		}
+	]
+}

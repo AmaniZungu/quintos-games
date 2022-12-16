@@ -1,0 +1,56 @@
+{
+	"films": [
+		{
+			"id": "04",
+			"title": "SpiderMan No Way Home",
+			"genre": "action and drama",
+			"rating": 5,
+			"descritpion": "Peter Parker Messes With The Mulitverse, That Causes Other Villans To Appear"
+		},
+		{
+			"id": "43",
+			"title": "Black Panther; Wakanka Forever",
+			"genre": "action and drama",
+			"rating": 5,
+			"descritpion": "Afer the death of Black Panther, Wakanka is in defenceless"
+		},
+		{
+			"id": "16",
+			"title": "Inside Out",
+			"genre": "drama",
+			"rating": 4,
+			"descritpion": "In The Mind Of A Teenager, Thats Having Issues With Her Emotions"
+		},
+		{
+			"id": "62",
+			"title": "Iron Man",
+			"genre": "action",
+			"rating": 5,
+			"descritpion": "Billion Dollor Playboy Tony Stark Gets Involed With Some Bad Guys And Becomes A Hero"
+		},
+
+		{
+			"id": 11,
+			"title": "The Shawshank Redemption",
+			"genre": "Drama",
+			"description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+			"rating": 5
+		},
+
+		{
+			"id": 32,
+			"title": "The Godfather",
+			"genre": "Crime",
+			"description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+			"rating": 5
+		},
+
+		{
+			"id": 13,
+			"title": "The Dark Knight",
+			"genre": "Action",
+			"description": "When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham. The Dark Knight must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+			"rating": 4
+		}
+	]
+}
