@@ -2,55 +2,111 @@
 	"films": [
 		{
 			"id": "04",
-			"title": "SpiderMan No Way Home",
-			"genre": "action and drama",
+			"title": "Spider-Man: No Way Home",
+			"genre": "Action / Sci-fi",
 			"rating": 5,
-			"descritpion": "Peter Parker Messes With The Mulitverse, That Causes Other Villans To Appear"
+			"description": "Spider-Man seeks the help of Doctor Strange to forget his exposed secret identity as Peter Parker. However, Strange's spell goes horribly wrong, leading to unwanted guests entering their universe."
 		},
 		{
 			"id": "43",
-			"title": "Black Panther; Wakanka Forever",
-			"genre": "action and drama",
+			"title": "Black Panther",
+			"genre": "Action / Adventure",
 			"rating": 5,
-			"descritpion": "Afer the death of Black Panther, Wakanka is in defenceless"
+			"description": "After his father's death, T'Challa returns home to Wakanda to inherit his throne. However, a powerful enemy related to his family threatens to attack his nation."
 		},
 		{
 			"id": "16",
 			"title": "Inside Out",
-			"genre": "drama",
-			"rating": 4,
-			"descritpion": "In The Mind Of A Teenager, Thats Having Issues With Her Emotions"
+			"genre": "Family / Comedy",
+			"rating": 5,
+			"description": "Eleven-year-old Riley moves to San Francisco, leaving behind her life in Minnesota. She and her five core emotions, Fear, Anger, Joy, Disgust and Sadness, struggle to cope with her new life."
 		},
 		{
 			"id": "62",
 			"title": "Iron Man",
-			"genre": "action",
+			"genre": "Action / Adventure",
 			"rating": 5,
-			"descritpion": "Billion Dollor Playboy Tony Stark Gets Involed With Some Bad Guys And Becomes A Hero"
+			"description": "When Tony Stark, an industrialist, is captured, he constructs a high-tech armoured suit to escape. Once he manages to escape, he decides to use his suit to fight against evil forces to save the world."
 		},
 
 		{
-			"id": 11,
-			"title": "The Shawshank Redemption",
-			"genre": "Drama",
-			"description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-			"rating": 5
+			"id": "11",
+			"title": "The Matrix (1999)",
+			"genre": "Sci-fi / Action",
+			"rating": 4,
+			"description": "Thomas Anderson, a computer programmer, is led to fight an underground war against powerful computers who have constructed his entire reality with a system called the Matrix."
 		},
 
 		{
-			"id": 32,
-			"title": "The Godfather",
+			"id": "32",
+			"title": "The Godfather Part II (1974)",
 			"genre": "Crime",
-			"description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
-			"rating": 5
+			"rating": 5,
+			"description": "Michael, Vito Corleone's son, attempts to expand his family's criminal empire. While he strikes a business deal with gangster Hyman Roth, he remains unaware of the lurking danger."
 		},
 
 		{
-			"id": 13,
-			"title": "The Dark Knight",
+			"id": "13",
+			"title": "The Dark Knight (2008)",
 			"genre": "Action",
-			"description": "When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham. The Dark Knight must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
-			"rating": 4
+			"rating": 4,
+			"description": "After Gordon, Dent and Batman begin an assault on Gotham's organised crime, the mobs hire the Joker, a psychopathic criminal mastermind who offers to kill Batman and bring the city to its knees."
+		},
+
+		{
+			"id": "06",
+			"title": "Puss in Boots: The Last Wish",
+			"genre": "Adventure / Comedy",
+			"rating": 4,
+			"description": "Puss in Boots discovers that his passion for adventure has taken its toll when he learns that he has burnt through eight of his nine lives. Puss sets out on an epic journey to find the mythical Last Wish and restore his nine lives."
+		},
+
+		{
+			"id": "26",
+			"title": "Star Wars: Episode V: The Empire Strikes Back",
+			"genre": "Sci-fi / Action",
+			"rating": 5,
+			"description": "Darth Vader is adamant about turning Luke Skywalker to the dark side. Master Yoda trains Luke to become a Jedi Knight while his friends try to fend off the Imperial fleet."
+		},
+
+		{
+			"id": "12",
+			"title": "Now You See Me",
+			"genre": "Thriller / Crime",
+			"rating": 3,
+			"description": "Four street magicians, Daniel, Merritt, Henley and Jack, ransack a huge amount of money belonging to insurance baron Arthur Tressler while being chased by police officers."
+		},
+
+		{
+			"id": "58",
+			"title": "It",
+			"genre": "Horror / Thriller",
+			"rating": 4,
+			"description": "Seven helpless and bullied children are forced to face their worst nightmares when Pennywise, a shape-shifting clown, reappears. The clown, an ancient evil torments children before feeding on them."
+		},
+
+		{
+			"id": "44",
+			"title": "Ocean's Eleven",
+			"genre": "Crime / Comedy",
+			"rating": 4,
+			"description": "Danny Ocean, a gangster, assembles a group of eleven people in an effort to steal money from three popular casinos in Las Vegas owned by his rival, Terry Benedict."
+		},
+
+		{
+			"id": "09",
+			"title": "Godzilla",
+			"genre": "Sci-fi",
+			"rating": 4,
+			"description": "Ford and his father, Joe, find evidence pointing to the existence of giant creatures. When the creatures, classified as MUTO, surface, Godzilla, an ancient behemoth, rises to fight them."
+		},
+
+		{
+			"id": "73",
+			"title": "The Fast and the Furious: Tokyo Drift",
+			"genre": "Action / Drama",
+			"rating": 4,
+			"description": "In order to avoid jail time, an errant car racer is sent to live with his father in Tokyo. However, he finds himself in trouble once again when he becomes a major competitor in drifting."
 		}
 	]
 }
