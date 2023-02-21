@@ -1,3 +1,4 @@
 QuintOS.username = 'AmaniZungu';
 QuintOS.dir = 'GAMES';
-QuintOS.gameTitle = 'DataDesigner';
+QuintOS.sys = 'arc';
+QuintOS.gameTitle = 'QuickClicks2';
