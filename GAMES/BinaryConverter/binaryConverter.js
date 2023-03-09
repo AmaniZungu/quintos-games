@@ -9,10 +9,10 @@ async function start() {
 
 	if (pick == 'D2B') {
 		let dec = await prompt('Decimal -> Binary');
-		text(convertD2B(dec), 0, 0);
+		txt(convertD2B(dec), 0, 0);
 	} else {
 		let bi = await prompt('Binary -> Decimal');
-		text(convertB2D(bi), 0, 0);
+		txt(convertB2D(bi), 0, 0);
 	}
 }
 

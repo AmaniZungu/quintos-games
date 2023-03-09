@@ -2,11 +2,11 @@ var name;
 var size;
 var quantity;
 onEvent('nameInput', 'change', function () {
-	name = getText('nameInput');
+	name = gettxt('nameInput');
 	updateSuggestion();
 });
 onEvent('sizeSelector', 'change', function () {
-	size = getText('sizeSelector');
+	size = gettxt('sizeSelector');
 	updateSuggestion();
 });
 onEvent('quantityInput', 'change', function () {
@@ -38,5 +38,5 @@ function updateSuggestion() {
 	} else if (size == 'Large') {
 		res += 'the FoodLovers grocery shop.';
 	}
-	setText('sug', res);
+	settxt('sug', res);
 }

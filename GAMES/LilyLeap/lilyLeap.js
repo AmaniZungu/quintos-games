@@ -120,7 +120,7 @@ function draw() {
 			frog.velocity.x = 0.975;
 			frog.ani.play();
 			score += 1;
-			text(score + '  ', 17, 17);
+			txt(score + '  ', 17, 17);
 			jump1.play();
 		} else if (kb.presses('ArrowRight')) {
 			// BIG jump!
@@ -128,7 +128,7 @@ function draw() {
 			frog.velocity.x = 1.355;
 			frog.ani.play();
 			score += 2;
-			text(score + '  ', 17, 17);
+			txt(score + '  ', 17, 17);
 			jump2.play();
 		}
 	}
@@ -144,7 +144,7 @@ function draw() {
 		gameWin();
 	}
 
-	text(countDown + ' '.repeat(5), 0, 17);
+	txt(countDown + ' '.repeat(5), 0, 17);
 
 	if (frameCount % 60 == 0) {
 		countDown--;
@@ -153,24 +153,24 @@ function draw() {
 
 function gameWin() {
 	isPlaying = false;
-	text('The Frog Came Home From Work. Good Job!', 3);
+	txt('The Frog Came Home From Work. Good Job!', 3);
 }
 
 async function gameOver() {
 	isPlaying = false;
 	frog.speed = 0;
 	death.play();
-	text('Game Over! Your score is: ' + score, 4);
+	txt('Game Over! Your score is: ' + score, 4);
 	await delay(2000);
-	text('                                ', 4);
+	txt('                                ', 4);
 	frog.x = 16;
 	frog.y = 83;
 	frog.speed = 0;
 	score = 0;
-	text(score + '  ', 17, 17);
+	txt(score + '  ', 17, 17);
 	countDown = 10;
 	bugs.removeAll();
 	makeBugs();
-	text(score + ' '.repeat(5), 0, 17);
+	txt(score + ' '.repeat(5), 0, 17);
 	isPlaying = true;
 }

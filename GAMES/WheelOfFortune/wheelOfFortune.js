@@ -99,7 +99,7 @@ async function addLetter() {
 	log(avail);
 
 	let letter = phrase[wordIdx][letterIdx];
-	text(letter, 3 + 3 * wordIdx, 3 + 3 * letterIdx);
+	txt(letter, 3 + 3 * wordIdx, 3 + 3 * letterIdx);
 	board[wordIdx][letterIdx] = letter;
 
 	log(wordIdx + ':' + letterIdx + ' letter: ' + letter);

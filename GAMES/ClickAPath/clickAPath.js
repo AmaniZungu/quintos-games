@@ -14,7 +14,7 @@ async function turnPage() {
 		// "3: Play a board game";
 		opt = [1, 2, 3];
 
-		pc.text(msg, 2, 2);
+		pc.txt(msg, 2, 2);
 
 		function tvClick() {
 			choice = 1;

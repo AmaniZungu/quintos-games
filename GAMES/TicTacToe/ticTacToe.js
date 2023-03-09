@@ -53,13 +53,13 @@ let scoreX = 0;
 let scoreO = 0;
 
 function start() {
-	text(title, 5, 6);
+	txt(title, 5, 6);
 	/* PART A: finish the grid of 9x8 spaces */
-	text('─'.repeat(26), gridRow + 7, gridCol);
-	text('─'.repeat(26), gridRow + 15, gridCol); // draw another horizontal line
+	txt('─'.repeat(26), gridRow + 7, gridCol);
+	txt('─'.repeat(26), gridRow + 15, gridCol); // draw another horizontal line
 
-	text('│\n'.repeat(23), gridRow, gridCol + 8);
-	text('│\n'.repeat(23), gridRow, gridCol + 17); // draw another vertical line
+	txt('│\n'.repeat(23), gridRow, gridCol + 8);
+	txt('│\n'.repeat(23), gridRow, gridCol + 17); // draw another vertical line
 
 	displayScore();
 	displayTurn();
@@ -117,7 +117,7 @@ function startNewGame() {
 	for (let row = 0; row < 3; row++) {
 		for (let col = 0; col < 3; col++) {
 			board[row][col] = ' ';
-			text(bigSpace, gridRow + row * 8, gridCol + col * 9);
+			txt(bigSpace, gridRow + row * 8, gridCol + col * 9);
 		}
 	}
 	turnX = Math.random() <= 0.5;
@@ -132,11 +132,11 @@ async function takeTurn(row, col) {
 
 	let mark;
 	if (turnX) {
-		text(bigX, gridRow + row * 8, gridCol + col * 9);
+		txt(bigX, gridRow + row * 8, gridCol + col * 9);
 		board[row][col] = 'x';
 		mark = 'x';
 	} else {
-		text(bigO, gridRow + row * 8, gridCol + col * 9);
+		txt(bigO, gridRow + row * 8, gridCol + col * 9);
 		board[row][col] = 'o';
 		mark = 'o';
 	}
@@ -165,13 +165,13 @@ async function takeTurn(row, col) {
 
 function displayTurn() {
 	if (turnX) {
-		text('Player X turn', 3, 53);
+		txt('Player X turn', 3, 53);
 	} else {
-		text('Player O turn', 3, 53);
+		txt('Player O turn', 3, 53);
 	}
 }
 
 function displayScore() {
-	text('Player X score: ' + scoreX, 5, 53);
-	text('Player O score: ' + scoreO, 6, 53);
+	txt('Player X score: ' + scoreX, 5, 53);
+	txt('Player O score: ' + scoreO, 6, 53);
 }

@@ -116,7 +116,7 @@ async function viewMember(memberId) {
 	}
 
 	log(member);
-	text(member.id + ' ' + member.name, 2, 0);
+	txt(member.id + ' ' + member.name, 2, 0);
 
 	let table = header;
 
@@ -134,7 +134,7 @@ async function viewMember(memberId) {
 		}
 	}
 	log(film);
-	text(table, 4, 0);
+	txt(table, 4, 0);
 	let choice = await prompt('0: Back, 1: View, 2: Rent, 3: Return', 20, 0, 40);
 	erase();
 

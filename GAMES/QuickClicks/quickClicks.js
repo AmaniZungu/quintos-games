@@ -27,9 +27,9 @@ async function makeBackground() {
 	let patternB = '|⎽⎽/⎺|0|⎽⎽/⎺⎺'.repeat(6);
 	for (let i = 1; i < 29; i++) {
 		if (i % 2 == 0) {
-			await text(patternA, 1, i);
+			await txt(patternA, 1, i);
 		} else {
-			await text(patternB, 1, i);
+			await txt(patternB, 1, i);
 		}
 	}
 }

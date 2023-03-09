@@ -7,7 +7,7 @@ async function start() {
 	if (option.toLowerCase() == 'yes') {
 		let filePath = QuintOS.dir + '/secrets.txt';
 		let data = await fetch(filePath);
-		message = await data.text();
+		message = await data.txt();
 	} else {
 		message = await prompt('Type The Message You Want To Decode or Encode');
 	}
