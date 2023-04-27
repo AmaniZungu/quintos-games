@@ -1,32 +1,5 @@
-async function start() {
-	// start of wrapper (I will explain how this works later)
-
-	const hangman = [
-		`
-  
-      
-      
-      
-      
-      
-=========`,
-		`
-  
-      |
-      |
-      |
-      |
-      |
-=========`,
-		`
-  +---+
-      |
-      |
-      |
-      |
-      |
-=========`,
-		`
+const hangman = [
+	`
   +---+
   |   |
       |
@@ -34,7 +7,7 @@ async function start() {
       |
       |
 =========`,
-		`
+	`
   +---+
   |   |
   O   |
@@ -42,7 +15,7 @@ async function start() {
       |
       |
 =========`,
-		`
+	`
   +---+
   |   |
   O   |
@@ -50,7 +23,7 @@ async function start() {
       |
       |
 =========`,
-		`
+	`
   +---+
   |   |
   O   |
@@ -58,7 +31,7 @@ async function start() {
       |
       |
 =========`,
-		`
+	`
   +---+
   |   |
   O   |
@@ -66,7 +39,7 @@ async function start() {
       |
       |
 =========`,
-		`
+	`
   +---+
   |   |
   O   |
@@ -74,7 +47,7 @@ async function start() {
  /    |
       |
 =========`,
-		`
+	`
   +---+
   |   |
   O   |
@@ -82,23 +55,30 @@ async function start() {
  / \\  |
       |
 =========`
-	];
+];
 
-	let words = `abruptly absurd abyss affix askew avenue awkward axiom azure bagpipes bandwagon banjo bayou beekeeper bikini blitz blizzard boggle bookworm boxcar buckaroo buffalo buffoon buxom buzzard buzzing buzzwords cobweb croquet crypt cycle disavow dizzying duplex dwarves embezzle equip espionage euouae exodus faking fishhook fixable fjord flapjack flopping fluffiness flyby foxglove frazzled frizzled fuchsia funny gabby galaxy galvanize gazebo gizmo glowworm glyph gnarly gnostic gossip grogginess haiku haphazard hyphen icebox injury ivory ivy jackpot jawbreaker jaywalk jazzy jelly jigsaw jinx jiujitsu jockey jogging joking jovial joyful juicy jukebox jumbo kayak kazoo keyhole kilobyte kiosk kitsch kiwifruit klutz knapsack larynx lengths lucky luxury lymph marquee matrix megahertz microwave mnemonic mystify nightclub nowadays oxidize oxygen pajama phlegm pixel pizazz polka psyche puppy puzzling quartz queue quips quiz quizzes quorum razzmatazz rhubarb rhythm scratch snazzy sphinx squawk staff strength stretch stronghold stymied subway swivel syndrome thrift thumb topaz transcript transgress transplant twelfth triphthong unknown unzip vaporize voodoo vortex walkway waltz wave wavy waxy well whomever witch wizard wristwatch xylophone yacht youthful yummy zigzag zilch zipper zodiac zombie`;
+const wordsList =
+	'abruptly absurd abyss affix askew avenue awkward axiom azure bagpipes bandwagon banjo bayou beekeeper bikini blitz blizzard boggle bookworm boxcar buckaroo buffalo buffoon buzzard buzzing buzzwords cobweb croquet crypt cycle disavow dizzying duplex dwarves embezzle equip espionage euouae exodus faking fishhook fixable fjord flapjack flopping fluffiness flyby foxglove frazzled frizzled funny gabby galaxy galvanize gazebo gizmo glow glyph gnarly gnostic gossip grogginess haiku haphazard hyphen icebox injury ivory ivy jackpot jawbreaker jaywalk jazzy jelly jigsaw jinx jiujitsu jockey jogging joking jovial joyful juicy jukebox jumbo kayak kazoo keyhole kilobyte kiosk kitsch kiwifruit klutz knapsack lengths lucky luxury marquee matrix megahertz microwave mnemonic mystify nightclub nowadays oxidize oxygen pajama phlegm pixel pizazz polka psyche puppy puzzling quartz queue quip quiz quizzes razzmatazz rhythm scratch snazzy squawk staff strength stretch stronghold stymie subway swivel syndrome thrift thumb topaz transcript transgress transplant twelfth unknown unzip vaporize voodoo vortex walkway waltz wave wavy waxy well whomever witch wizard wristwatch xylophone yacht youthful yummy zigzag zilch zipper zodiac zombie';
 
-	/* PART A0: split the words string into an array, choose a random word */
-	words = words.split(' ');
+// the start function gets run when the game starts
+async function start() {
+	// your code goes here! below this line
+
+	/* Part A: split the wordsList String into an array called words, then choose a random word */
+
+	words = wordsList.split(' ');
 	console.log(words);
 
-	let rand = Math.floor(Math.random() * words.length);
-	console.log(rand);
-	let word = words[rand];
+	let random = Math.floor(Math.random() * words.length);
+	console.log(random);
+
+	let word = words[random];
 	console.log(word);
 
-	/* PART A1: make an array with a line for each letter in the word */
-	/* PART B: use a for loop instead of a while loop */
+	/* Part B1: make an array with a line for each letter in the word */
 	// Example word: 'quiz'
 	// lines -> ['_', '_', '_', '_']
+
 	let lines = [];
 
 	for (let i = 0; i < word.length; i++) {
@@ -106,26 +86,28 @@ async function start() {
 	}
 	console.log(lines);
 
-	let guesses = [];
+	/* Part B2 and C: show the lines for the word below the hangman art */
 
+	let guesses = [];
 	let parts = 0;
 
-	/* PART A3: make the game loop */
 	while (lines.includes('_') == true) {
-		/* PART A2: show the lines for the word below the hangman string */
 		let guess = await prompt(hangman[parts] + '\n\n' + lines.join(' '));
 		guesses.push(guess);
 
-		/* PART A4: implement guessing letters */
+		//Gussing the letters
+
 		let isCorrect = false;
 		for (let i = 0; i < word.length; i++) {
-			if (guess == word[i]) {
+			let letter = word[i];
+			if (guess == letter) {
 				lines[i] = guess;
 				isCorrect = true;
 			}
 		}
 
-		/* PART B1: implement guessing the whole word */
+		//Gussing for the whoe word
+
 		if (guess == word) {
 			break;
 		}
@@ -135,14 +117,16 @@ async function start() {
 		}
 
 		if (parts > hangman.length - 1) {
-			await alert('You ran out of guess attempts.\n\nYou guessed: ' + guesses.join(', ') + '\n\nThe word was ' + word);
+			await alert('No more guesses left!\n\nYou guessed: ' + guesses.join(', ') + '\n\nThe correct word was ' + word);
 			break;
 		}
 	}
 
 	if (parts <= hangman.length - 1) {
-		await alert('You got the word right!\n\nYou guessed: ' + guesses.join(', ') + '\n\nThe word was ' + word);
+		await alert(
+			'You guessed the right word!\n\nYou guessed: ' + guesses.join(', ') + '\n\nThe correct word was ' + word
+		);
 	}
 
-	exit(); // exits the game
-}
+	exit();
+} // end of the start function

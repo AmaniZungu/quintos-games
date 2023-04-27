@@ -19,5 +19,5 @@
 		"postversion": "git push",
 		"relink": "npm link ../../pkg/quintos"
 	},
-	"version": "1.0.31"
+	"version": "1.0.32"
 }
